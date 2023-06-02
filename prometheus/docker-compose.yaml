@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  prometheus-server: 
+    image: "bitnami/prometheus:2.44.0"
+    volumes:
+      - type: volume
+        source: prometheus_data
+        target: /opt/bitnami/prometheus/data
+    ports:
+      - "9090:9090"
+
+
+volumes:
+  prometheus_data:
