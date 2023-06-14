@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  kafka0:
+  kafka1:
     image: kafka-debian:3.3.2
     ports:
       - "19092:9092"
@@ -12,7 +12,7 @@ services:
       - type: bind
         source: kafka1.properties
         target: /kafka_2.13-3.4.0/config/kraft/server.properties
-  kafka1:
+  kafka2:
     image: kafka-debian:3.3.2
     ports:
       - "19093:9092"
@@ -23,7 +23,7 @@ services:
       - type: bind
         source: kafka2.properties
         target: /kafka_2.13-3.4.0/config/kraft/server.properties
-  kafka2:
+  kafka3:
     image: kafka-debian:3.3.2
     ports:
       - "19094:9092"
