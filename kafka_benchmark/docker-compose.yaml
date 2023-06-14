@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  kafka-0:
+    image: kafka-debian:3.3.2
+    ports:
+      - "19092:9092"
+    environment:
+      - KAFKA_CLUSTER_ID=abcdefghijklmnopqrstuv
+    volumes:
+      - kafka_0_data:/data/kafka
+      - type: bind
+        source: kafka1.properties
+        target: /kafka_2.13-3.4.0/config/kraft/server.properties
+  kafka-1:
+    image: kafka-debian:3.3.2
+    ports:
+      - "19093:9092"
+    environment:
+      - KAFKA_CLUSTER_ID=abcdefghijklmnopqrstuv
+    volumes:
+      - kafka_1_data:/data/kafka
+      - type: bind
+        source: kafka2.properties
+        target: /kafka_2.13-3.4.0/config/kraft/server.properties
+  kafka-2:
+    image: kafka-debian:3.3.2
+    ports:
+      - "19094:9092"
+    environment:
+      - KAFKA_CLUSTER_ID=abcdefghijklmnopqrstuv
+    volumes:
+      - kafka_2_data:/data/kafka
+      - type: bind
+        source: kafka3.properties
+        target: /kafka_2.13-3.4.0/config/kraft/server.properties
+
+volumes:
+  kafka_0_data:
+    driver: local
+  kafka_1_data:
+    driver: local
+  kafka_2_data:
+    driver: local

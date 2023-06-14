@@ -7,8 +7,15 @@ services:
       - type: volume
         source: prometheus_data
         target: /opt/bitnami/prometheus/data
+      - type: bind
+        source: ./prometheus.yml
+        target: /opt/bitnami/prometheus/conf/prometheus.yml
     ports:
       - "9090:9090"
+  consul-server:
+    image: "hashicorp/consul:1.15"
+    ports:
+      - "8500:8500"
 
 
 volumes:
